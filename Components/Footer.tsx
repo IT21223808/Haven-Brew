@@ -1,0 +1,109 @@
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { IoCart, IoSearchSharp } from 'react-icons/io5';
+import { TiSocialFacebook } from 'react-icons/ti';
+import { FaPinterest, FaYoutube } from 'react-icons/fa';
+
+function Footer() {
+  
+  return (
+    <div>
+      <footer className="bg-[url('/footer_image.png')] bg-cover bg-center h-[full] dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 text-sm z-20">
+        <hr className="w-full border-none bg-gradient-to-r from-black/0 via-black/20 to-black/0 dark:from-white/0 dark:via-white/25 dark:to-white/0" />
+        <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-5 py-20 flex flex-col sm:flex-row gap-10 justify-between">
+          {/* Logo and Description */}
+          <div>
+            <Link href="#home" className=" flex items-center space-x-0 pl-0 pb-50">
+              <Image
+                src="/logo2.png" // Replace with your coffee shop logo
+                alt="Coffee Shop Logo"
+                width={90}
+                height={90}
+                className="rounded-full mb-0"
+              />
+              <span className="font-bold pt-25 pb-5 text-3xl text-amber-50 dark:text-white">
+                HAVEN-BREW
+              </span>
+            </Link>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <p className="font-serif text-lg text-white pl-9">
+                Savor the warmth of every brew.</p>
+              <p className=" font-serif text-lg text-white pl-9">Handcrafted coffee and freshly baked treats to fuel your day.</p>
+            </motion.div>
+
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-wrap sm:gap-x-12 gap-y-6 sm:mt-0">
+            <div className="w-1/2 sm:w-auto text-white font-serif ">
+              <h3 className=" dark:text-white mb-4">Explore</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link className="flex items-start button-hover" href="/menu">
+                    <span>Menu</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="flex items-start button-hover" href="/our-story">
+                    <span>Our Story</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="flex items-start button-hover" href="/locations">
+                    <span>Visit Us</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="w-1/2  text-white  sm:w-auto font-serif">
+              <h3 className= "dark:text-white mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link className="flex items-start button-hover" href="/terms">
+                    <span>Terms & Conditions</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link className="flex items-start button-hover" href="/privacy">
+                    <span>Privacy Policy</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-white font-serif dark:text-white mb-4">Get in Touch</h3>
+            <p className="leading-relaxed font-mono text-white ">
+              <span className="block ">ADDRESS:123 Brew St,Coffee City,Colombo</span>
+              <span className="block">EMAIL:havenbrew@example.com</span>
+              <span className="block ">PHONE NO:+94 011-123-4567</span>
+            </p>
+            <p className="mt-2 text-white font-serif ">Open Daily: 8:00 AM - 8:00 PM</p>
+            <motion.div className="hidden md:flex mt-3 items-center space-x-6">
+                    {/* Cart Icon */}
+                    <Link href="#facebook" className="flex items-center space-x-1 text-white hover:text-yellow-600">
+                        <TiSocialFacebook className="h-7 w-7 fill-current" />
+                    </Link>
+                    <Link href="#cart" className="flex items-center space-x-1 text-white hover:text-yellow-600">
+                        <FaPinterest className="h-7 w-7 fill-current" />
+                    </Link>
+                    <Link href="#cart" className="flex items-center space-x-1 text-white hover:text-yellow-600">
+                        <FaYoutube className="h-7 w-7 fill-current" />
+                    </Link>
+                </motion.div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default Footer;

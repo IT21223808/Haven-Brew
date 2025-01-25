@@ -1,3 +1,5 @@
+This is a Coffee shop website(Haven-Brew)built using Next.js, Tailwind CSS,TypeScript, and Framer Motion
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
