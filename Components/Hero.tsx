@@ -74,7 +74,7 @@ export default function Hero({}: Props) {
         data-aos-delay="600"
         className="w-full h-full mt-20 flex justify-center items-center"
       >
-        <Image src="/coffee.png" alt="coffee" height={500} width={600} />
+        <Image src="/coffee.png" alt="coffee" priority height={500} width={600} />
       </div>
     </div>
   );

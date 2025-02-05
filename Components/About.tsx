@@ -15,6 +15,7 @@ const About = (props: Props) => {
   console.log(opacity, translateX)
   const translateY = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [200, 100, 0, 0])
   console.log(opacity, translateY)
+ 
   return (
     <div className="min-h-screen bg-[#f8f4f0] text-gray-800">
       {/* Hero Section */}
@@ -33,7 +34,7 @@ const About = (props: Props) => {
       </section>
 
       {/* About Content */}
-      <section className="py-16 px-6 md:px-20">
+      <section className="relative py-16 px-6 md:px-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -78,6 +79,7 @@ const About = (props: Props) => {
                 src="/coffee1.png" // Replace with your image path
                 alt="Rotating Coffee Beans"
                 className="rounded-full shadow-sm"
+                
               />
             </motion.div>
           </motion.div>
@@ -86,10 +88,11 @@ const About = (props: Props) => {
             initial={{ opacity: 0, translateX:100, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            whileInView={{translateX:0, opacity:1}}  viewport={{once:true}}
+            whileInView={{translateX:0, opacity:1}}  
+            viewport={{once:true}}
           >
-            <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-            <p className="text-lg leading-relaxed">
+            <h2 className="relative text-3xl font-bold mb-4">Our Vision</h2>
+            <p className="relative text-lg leading-relaxed">
               To build a community around the art of coffee. From sourcing
               sustainable beans to cultivating relationships with our patrons,
               we strive to make every visit memorable. Our commitment extends
@@ -101,15 +104,15 @@ const About = (props: Props) => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 px-6 md:px-10 bg-[#cda67e]">
+      <section className="relative py-16 px-6 md:px-10 bg-[#cda67e]">
         <motion.div ref={scrollref} style={{ opacity, translateY }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold mb-6">Meet Our Team</h2>
-          <p className="text-lg leading-relaxed">
+          <h2 className="relative text-3xl font-bold mb-6">Meet Our Team</h2>
+          <p className="relative text-lg leading-relaxed">
             Behind every great cup of coffee is a passionate team. Our skilled
             baristas, friendly staff, and creative bakers come together to
             ensure every visit is exceptional.
@@ -131,7 +134,7 @@ const About = (props: Props) => {
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               transition={{ duration: 0.5, delay: index * 0.2, type: "spring", stiffness: 300 }}
-              className="text-center"
+              className="text-center relative"
             >
               <motion.img
                 src={member.img}
@@ -142,8 +145,8 @@ const About = (props: Props) => {
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 300 }}
               />
-              <h3 className="text-xl font-bold mt-4">{member.name}</h3>
-              <p className="text-gray-600">{member.role}</p>
+              <h3 className="relative text-xl font-bold mt-4">{member.name}</h3>
+              <p className="relative text-gray-600">{member.role}</p>
             </motion.div>
           ))}
         </div>
