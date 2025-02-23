@@ -20,18 +20,18 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="h-full w-full">
+    <main className="w-full min-h-screen overflow-hidden">
       <Navbar />
-      <section id="home">
+      <section id="home" className="w-full">
         <Hero />
       </section>
-      <section id="products">
+      <section id="products" className="w-full">
         <ProductsPage />
       </section>
-      <section id="about">
+      <section id="about" className="w-full">
         <About />
       </section>
-      <section id="FAQ">
+      <section id="FAQ" className="w-full">
         <FAQ />
       </section>
       <Footer />

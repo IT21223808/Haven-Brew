@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.container {
+    position: relative; /* or 'fixed' or 'absolute' */
+  }
+  

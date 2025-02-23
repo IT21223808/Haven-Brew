@@ -30,7 +30,7 @@ const Navbar = () => {
         }
     };
     return (
-        <div className='w-full h-[75px] fixed top-0 shadow-lg shadow-[#4e2e1f]/50 bg-[#4e2e1f] backdrop-blur-md z-50 px-10'>
+        <div className='w-screen h-[75px] fixed top-0 shadow-lg shadow-[#4e2e1f]/50 bg-[#4e2e1f] backdrop-blur-md z-50 px-10'>
             <div className='w-full h-full flex flex-row items-center justify-between m-auto px-[10px]'>
 
                 {/* Logo Section */}
@@ -44,7 +44,9 @@ const Navbar = () => {
                             src="/logo2.png"
                             alt="logo"
                             width={100}
-                            height={60}
+                            height={40}
+                            priority={true} 
+                            // style={{ width: "150px", height: "auto" }}
                             onClick={() => handleScroll("home")}
                             className='flex items-center cursor-pointer pt-4 hover:animate-slowspin'
                         />

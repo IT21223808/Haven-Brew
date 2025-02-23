@@ -19,7 +19,7 @@ const About = (props: Props) => {
   return (
     <div className="min-h-screen bg-[#f8f4f0] text-gray-800">
       {/* Hero Section */}
-      <section className="relative w-full h-[30vh] flex items-center justify-center bg-cover bg-center bg-[url('/coffee-shop-hero.jpg')]">
+      <section className="relative w-full h-[30vh] flex items-center justify-center bg-cover bg-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,23 +35,38 @@ const About = (props: Props) => {
 
       {/* About Content */}
       <section className="relative py-16 px-6 md:px-20">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
-          <p className="text-lg leading-relaxed">
-            At Corretto, we believe coffee is more than just a drink—it’s an
-            experience. Since opening our doors, we've been dedicated to
-            sourcing the finest beans, brewing perfection, and creating a space
-            where everyone feels at home. Whether you're here for a quiet
-            moment, a meeting, or to savor our handcrafted pastries, we’re
-            thrilled to share our passion with you.
-          </p>
-        </motion.div>
-      </section>
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    className="max-w-4xl mx-auto text-center"
+  >
+    <motion.h2 
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="text-3xl font-bold mb-6"
+    >
+      Who We Are
+    </motion.h2>
+    
+    <motion.p 
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7, delay: 0.4 }}
+      className="text-lg leading-relaxed"
+    >
+      At Corretto, we believe coffee is more than just a drink—it’s an experience. 
+      Since opening our doors, we've been dedicated to sourcing the finest beans, 
+      brewing perfection, and creating a space where everyone feels at home. Whether 
+      you're here for a quiet moment, a meeting, or to savor our handcrafted pastries, 
+      we’re thrilled to share our passion with you.
+    </motion.p>
+  </motion.div>
+</section>
+
+
 
       {/* Image and Vision Section */}
       <section className="py-16 bg-white bg-[url('/bg1.png')]">

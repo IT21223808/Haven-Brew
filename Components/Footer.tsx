@@ -10,8 +10,8 @@ function Footer() {
   
   return (
     <div>
-      <footer className=" relative bg-[url('/footer_image.png')] bg-cover bg-center h-[full] dark:bg-zinc-900 text-zinc-700 dark:text-zinc-400 text-sm z-20">
-        <hr className=" relative w-full border-none bg-gradient-to-r from-black/0 via-black/20 to-black/0 dark:from-white/0 dark:via-white/25 dark:to-white/0" />
+      <footer className=" relative  bg-cover bg-center h-[full] dark:bg-zinc-800 text-sm z-20">
+        <hr className=" relative w-full border-none bg-gradient-to-r from-black/0 via-black/30 to-black/0 dark:from-white/0 dark:via-white/25 dark:to-white/0" />
         <div className=" relative w-full max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-5 py-20 flex flex-col sm:flex-row gap-10 justify-between">
           {/* Logo and Description */}
           <div>
@@ -19,12 +19,12 @@ function Footer() {
               <Image
                 src="/logo2.png" // Replace with your coffee shop logo
                 alt="Coffee Shop Logo"
-                width={90}
+                width={80}
                 height={90}
-                priority
-                className=" w-auto h-auto rounded-full mb-0"
+                priority={true} 
+                className=" flex relative rounded-full mb-0 pt-0"
               />
-              <span className="font-bold pt-25 pb-5 text-3xl text-amber-50 dark:text-white">
+              <span className="fle relative font-bold pt-25 pb-5 text-3xl text-amber-50 dark:text-white">
                 HAVEN-BREW
               </span>
             </Link>
@@ -33,9 +33,9 @@ function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <p className=" relative font-serif text-lg text-white pl-9">
+              <p className=" relative font-serif text-lg text-orange-200 pl-9">
                 Savor the warmth of every brew.</p>
-              <p className="  relative font-serif text-lg text-white pl-9">Handcrafted coffee and freshly baked treats to fuel your day.</p>
+              <p className="  relative font-serif text-lg font-bold text-amber-400 pl-9 ">Handcrafted coffee and freshly baked treats to fuel your day.</p>
             </motion.div>
 
           </div>

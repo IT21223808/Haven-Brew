@@ -4,77 +4,71 @@ import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-type Props = {};
-
-export default function Hero({}: Props) {
+export default function Hero() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true, // Ensure animations happen only once
+      once: true,
       easing: "ease-in-out",
     });
   }, []);
 
   return (
-    <div className="flex bg-[#a77158] flex-row items-center justify-center px-20 mt-19 w-full z-[20]">
+    <div className="w-screen bg-[#a77158] min-h-screen flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 lg:px-20 py-20 overflow-hidden">
       {/* Left Section */}
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
-        {/* Text Section */}
-        <div
-          data-aos="fade-down"
-          className="py-[8px] px-[7px] opacity-[0.9]"
-        ></div>
-
-        <div
+      <div className="w-full md:w-1/2 text-center md:text-left">
+        <h1
           data-aos="fade-right"
-          className="flex flex-col pt-10 gap-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+          className="text-4xl md:text-6xl font-bold text-white leading-tight"
         >
-          <span>
-            START{" "}
-            <span
-              className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-amber-900"
-              data-aos="zoom-out"
-              data-aos-delay="300"
-            >
-              YOU DAY
-            </span>{" "}
-            WITH COFFEE
-          </span>
-        </div>
+          START{" "}
+          <span
+            className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-amber-900"
+            data-aos="zoom-out"
+            data-aos-delay="300"
+          >
+            YOUR DAY
+          </span>{" "}
+          WITH COFFEE
+        </h1>
 
         <p
           data-aos="fade-right"
           data-aos-delay="400"
-          className="text-xl text-gray-700 my-5 max-w-[600px]"
+          className="text-lg md:text-xl text-gray-100 my-5 max-w-[500px]"
         >
-          "Made using only the finest coding & design practices there are,
-          Corretto is sure to make a perfect main ingredient for creating an
-          irresistible coffee shop website."
+          "Made using only the finest coding & design practices, Corretto is
+          sure to make a perfect main ingredient for creating an irresistible
+          coffee shop website."
         </p>
 
         <div
           data-aos="fade-up"
           data-aos-delay="500"
-          className="mb-10 flex flex-col items-center sm:flex-row gap-3"
+          className="flex justify-center md:justify-start"
         >
           <Link
             href="/"
-            className="inline-flex relative z-9 h-10 rounded-xl p-px shadow-lg bg-gradient-to-b from-white to-zinc-300"
+            className="bg-white text-black px-6 py-3 rounded-xl shadow-lg hover:bg-gray-200 transition"
           >
-            <div className="flex items-center gap-1 px-6 font-medium rounded-xl whitespace-nowrap bg-white text-black">
-              <span>Shop Now</span>
-            </div>
+            Shop Now
           </Link>
         </div>
       </div>
 
-      {/* Right Section */}
+      {/* Right Section (Image) */}
       <div
         data-aos="zoom-in"
         data-aos-delay="600"
-        className="w-full h-full mt-20 flex justify-center items-center"
+        className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0"
       >
-        <Image src="/coffee.png" alt="coffee" priority height={500} width={600} />
+        <Image
+          src="/coffee.png"
+          alt="coffee"
+          width={500}
+          height={400}
+          className="w-full max-w-[400px] md:max-w-[500px] h-auto"
+        />
       </div>
     </div>
   );
