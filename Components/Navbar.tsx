@@ -43,12 +43,11 @@ const Navbar = () => {
                         <Image
                             src="/logo2.png"
                             alt="logo"
-                            width={100}
-                            height={40}
+                            width={120}
+                            height={30}
                             priority={true} 
-                            // style={{ width: "150px", height: "auto" }}
                             onClick={() => handleScroll("home")}
-                            className='flex items-center cursor-pointer pt-4 hover:animate-slowspin'
+                            className='flex items-center cursor-pointer pt-7 hover:animate-slowspin'
                         />
                     </Link>
                 </motion.div>

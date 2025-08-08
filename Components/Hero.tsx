@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
   useEffect(() => {
@@ -11,6 +13,16 @@ export default function Hero() {
       once: true,
       easing: "ease-in-out",
     });
+  }, []);
+
+  const phrases = ["YOUR DAY", "YOUR MORNING", "YOUR ENERGY", "YOUR MOOD"];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    }, 2000); // Changes every 2 seconds
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -22,13 +34,18 @@ export default function Hero() {
           className="text-4xl md:text-6xl font-bold text-white leading-tight"
         >
           START{" "}
-          <span
-            className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-amber-900"
-            data-aos="zoom-out"
-            data-aos-delay="300"
-          >
-            YOUR DAY
-          </span>{" "}
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={phrases[index]}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.6 }}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-amber-900"
+            >
+              {phrases[index]}
+            </motion.span>
+          </AnimatePresence>{" "}
           WITH COFFEE
         </h1>
 

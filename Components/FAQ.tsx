@@ -16,7 +16,7 @@ export function FAQ() {
         </motion.div>
       </section>
 
-      <section className="px-6 md:px-20 flex flex-col md:flex-row gap-10 font-semibold">
+      <section className="px-6 md:px-20 flex flex-col md:flex-row gap-10 font-semibold items-center">
         {/* FAQ Section */}
         <motion.div
           initial="hidden"
@@ -28,9 +28,9 @@ export function FAQ() {
               transition: { staggerChildren: 0.2 },
             },
           }}
-          className="flex-1 max-w-4xl mx-20"
+          className="flex-1 w-full max-w-4xl mx-auto pt-10"
         >
-          <Accordion type="single" collapsible className="text-left pt-10 text-3xl">
+          <Accordion type="single" collapsible className="text-left text-lg md:text-3xl">
             {[
               {
                 question: "Where do you source your coffee beans?",
@@ -82,7 +82,7 @@ export function FAQ() {
 
         {/* Image Section */}
         <motion.div
-          className="flex-1 flex pb-5 justify-center items-center"
+          className="flex-1 flex pb-5 justify-center items-center w-full md:w-auto"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
@@ -90,8 +90,7 @@ export function FAQ() {
           <motion.img
             src="/coffee2.png"
             alt="Coffee"
-            height={450}
-            width={450}
+            className="max-w-[90%] md:max-w-[450px]"
             animate={{ y: [0, -5, 0] }}
             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
             whileHover={{ scale: 1.1, rotate: 5 }}

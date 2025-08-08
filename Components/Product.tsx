@@ -39,20 +39,26 @@ const products = [
   },
 ];
 
-
 const ProductsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-yellow-800 to-yellow-500 text-white  py-20">
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center"
-        >
-          <h1 className="text-4xl font-[cursive]">Our Products</h1>
-          <p className="mt-4 text-lg">Discover the perfect coffee for every moment.</p>
+      <div className="bg-gradient-to-r from-yellow-800 to-yellow-500 text-white py-20">
+        <motion.div className="text-center">
+          <motion.h1
+            className="text-4xl font-[cursive]"
+            animate={{ y: [0, -10, 0, 10, 0] }} // Wave Motion
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Our Products
+          </motion.h1>
+          <motion.p
+            className="mt-4 text-lg"
+            animate={{ y: [0, 5, 0, -5, 0] }} // Opposite Wave
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            Discover the perfect coffee for every moment.
+          </motion.p>
         </motion.div>
       </div>
 
@@ -74,13 +80,16 @@ const ProductsPage: React.FC = () => {
           {products.map((product) => (
             <motion.div
               key={product.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:scale-105 transition-transform duration-300"
+              className="bg-white rounded-lg shadow-md overflow-hidden"
               whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
-              <img
+              <motion.img
                 src={product.image}
                 alt={product.name}
                 className="w-full h-56 object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
               />
               <div className="p-5">
                 <h2 className="text-xl font-semibold text-amber-950">{product.name}</h2>
@@ -89,9 +98,13 @@ const ProductsPage: React.FC = () => {
                   <span className="text-lg font-bold text-yellow-500">
                     {product.price}
                   </span>
-                  <button className="bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600">
+                  <motion.button
+                    className="bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     Buy Now
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             </motion.div>
