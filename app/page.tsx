@@ -1,18 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Navbar from "@/Components/Navbar";
 import Hero from "@/Components/Hero";
 import ProductsPage from "@/Components/Product";
 import About from "@/Components/About";
 import Footer from "@/Components/Footer";
 import { FAQ } from "@/Components/FAQ";
+import Navbar from "@/Components/Navbar";
+import Aos from "aos";
 
 export default function Home() {
   useEffect(() => {
-    AOS.init({
+    Aos.init({
       duration: 1000, // Animation duration
       easing: "ease-in-out", // Smooth easing
       once: true, // Trigger animation only once
