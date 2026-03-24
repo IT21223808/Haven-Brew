@@ -37,7 +37,7 @@ export default function Hero() {
       <div className="w-full lg:w-1/2 text-center lg:text-left">
         <h1
           data-aos="fade-right"
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl
           font-bold text-white leading-tight"
         >
           START{" "}
@@ -60,7 +60,7 @@ export default function Hero() {
         <p
           data-aos="fade-right"
           data-aos-delay="400"
-          className="text-base sm:text-lg md:text-xl text-gray-100 my-5
+          className="text-base sm:text-lg md:text-3xl text-gray-100 my-5
           max-w-md mx-auto lg:mx-0"
         >
           "Made using only the finest coding & design practices, Corretto is
@@ -75,7 +75,7 @@ export default function Hero() {
         >
           <Link
             href="/"
-            className="bg-white text-black px-6 py-3 rounded-xl shadow-lg
+            className="bg-white text-3xl font-bold text-black px-9 py-5 rounded-2xl shadow-lg
             hover:bg-gray-200 transition duration-300"
           >
             Shop Now
