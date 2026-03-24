@@ -46,7 +46,7 @@ const ProductsPage: React.FC = () => {
       <div className="bg-gradient-to-r from-yellow-800 to-yellow-500 text-white py-20">
         <motion.div className="text-center">
           <motion.h1
-            className="text-4xl font-[cursive]"
+            className="text-6xl font-[cursive]"
             animate={{ y: [0, -10, 0, 10, 0] }} // Wave Motion
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
