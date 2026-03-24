@@ -2,108 +2,93 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { IoCart, IoSearchSharp } from 'react-icons/io5';
 import { TiSocialFacebook } from 'react-icons/ti';
 import { FaPinterest, FaYoutube } from 'react-icons/fa';
 
 function Footer() {
-  
   return (
-    <div>
-      <footer className=" relative  bg-cover bg-center h-[full] bg-gray-300 text-sm z-20">
-        <hr className=" relative w-full border-none bg-gradient-to-r from-black/0 via-black/30 to-black/0 dark:from-white/0 dark:via-white/25 dark:to-white/0" />
-        <div className=" relative w-full max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-5 py-20 flex flex-col sm:flex-row gap-10 justify-between">
-          {/* Logo and Description */}
-          <div>
-            <Link href="#home" className=" relative flex items-center space-x-0 pl-0 pb-50">
-              <Image
-                src="/logo2.png" // Replace with your coffee shop logo
-                alt="Coffee Shop Logo"
-                width={80}
-                height={90}
-                priority={true} 
-                className=" flex relative rounded-full mb-0 pt-0"
-              />
-              <span className="fle relative font-bold pt-25 pb-5 text-3xl text-amber-900 dark:text-white">
-                HAVEN-BREW
-              </span>
-            </Link>
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <p className=" relative font-serif text-lg text-orange-800 pl-9">
-                Savor the warmth of every brew.</p>
-              <p className="  relative font-serif text-lg font-bold text-amber-900 pl-9 ">Handcrafted coffee and freshly baked treats to fuel your day.</p>
-            </motion.div>
+    <footer className="bg-gray-300 text-sm rounded-l-lg rounded-r-lg">
+      <hr className="w-full border-none bg-gradient-to-r from-black/0 via-black/30 to-black/0" />
 
-          </div>
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-8 lg:px-5 py-12 
+      flex flex-col md:flex-row gap-10 justify-between">
 
-          {/* Links */}
-          <div className=" relative flex flex-wrap sm:gap-x-12 gap-y-6 sm:mt-0">
-            <div className=" relativew-1/2 sm:w-auto text-black font-serif ">
-              <h3 className=" relative dark:text-white mb-4">Explore</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link className=" relative flex items-start button-hover" href="/menu">
-                    <span>Menu</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link className=" relative flex items-start button-hover" href="/our-story">
-                    <span>Our Story</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link className=" relative flex items-start button-hover" href="/locations">
-                    <span>Visit Us</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className=" relative w-1/2  text-black   sm:w-auto font-serif">
-              <h3 className="relative dark:text-white mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link className=" relativeflex items-start button-hover" href="/terms">
-                    <span>Terms & Conditions</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link className="flex items-start button-hover" href="/privacy">
-                    <span>Privacy Policy</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+        {/* 🔹 Logo Section */}
+        <div className="w-full md:w-1/3 text-center md:text-left">
+          <Link href="#home" className="flex items-center justify-center md:justify-start space-x-3">
+            <Image
+              src="/logo2.png"
+              alt="Coffee Shop Logo"
+              width={70}
+              height={70}
+              className="rounded-full"
+            />
+            <span className="font-bold text-3xl mb-6 text-amber-900">
+              HAVEN-BREW
+            </span>
+          </Link>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-black  font-serif relative dark:text-white mb-4">Get in Touch</h3>
-            <p className="leading-relaxed relative font-mono text-black e ">
-              <span className="block ">ADDRESS:123 Brew St,Coffee City,Colombo</span>
-              <span className="block">EMAIL:havenbrew@example.com</span>
-              <span className="block ">PHONE NO:+94 011-123-4567</span>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <p className="mt-4 text-2xl font-serif text-orange-800">
+              Savor the warmth of every brew.
             </p>
-            <p className="mt-2 relative text-black  font-serif ">Open Daily: 8:00 AM - 8:00 PM</p>
-            <motion.div className="hidden relative md:flex mt-3 items-center space-x-6">
-                    {/* Cart Icon */}
-                    <Link href="#facebook" className="flex items-center space-x-1 text-black  hover:text-yellow-600">
-                        <TiSocialFacebook className="h-7 w-7 fill-current" />
-                    </Link>
-                    <Link href="#cart" className="flex items-center space-x-1 text-black  hover:text-yellow-600">
-                        <FaPinterest className="h-7 w-7 fill-current" />
-                    </Link>
-                    <Link href="#cart" className="flex items-center space-x-1 text-black  hover:text-yellow-600">
-                        <FaYoutube className="h-7 w-7 fill-current" />
-                    </Link>
-                </motion.div>
+            <p className="font-serif text-xl font-bold text-amber-900">
+              Handcrafted coffee and freshly baked treats to fuel your day.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* 🔹 Links Section */}
+        <div className="flex flex-col text-2xl md:flex-row gap-10 w-full md:w-1/3 items-center md:items-start text-center md:text-left">
+          {/* Explore */}
+          <div>
+            <h3 className="mb-4 font-bold">Explore</h3>
+            <ul className="space-y-2">
+              <li><Link href="/menu">Menu</Link></li>
+              <li><Link href="/our-story">Our Story</Link></li>
+              <li><Link href="/locations">Visit Us</Link></li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="mb-4 font-bold">Legal</h3>
+            <ul className="space-y-2">
+              <li><Link href="/terms">Terms & Conditions</Link></li>
+              <li><Link href="/privacy">Privacy Policy</Link></li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* 🔹 Contact Section */}
+        <div className="w-full md:w-1/3 text-center text-2xl md:text-left">
+          <h3 className="mb-4 font-bold">Get in Touch</h3>
+
+          <p className="font-mono text-base">
+            <span className="block">123 Brew St, Colombo</span>
+            <span className="block">havenbrew@example.com</span>
+            <span className="block">+94 011-123-4567</span>
+          </p>
+
+          <p className="mt-2 font-serif">
+            Open Daily: 8:00 AM - 8:00 PM
+          </p>
+
+          {/* Social Icons */}
+          <div className="flex justify-center md:justify-start mt-4 space-x-5">
+            <Link href="#"><TiSocialFacebook className="h-6 w-6 hover:text-yellow-600" /></Link>
+            <Link href="#"><FaPinterest className="h-6 w-6 hover:text-yellow-600" /></Link>
+            <Link href="#"><FaYoutube className="h-6 w-6 hover:text-yellow-600" /></Link>
           </div>
         </div>
-      </footer>
-    </div>
+
+      </div>
+    </footer>
   );
 }
 
