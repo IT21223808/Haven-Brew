@@ -30,7 +30,7 @@ export function FAQ() {
           }}
           className="flex-1 w-full max-w-4xl mx-auto pt-10"
         >
-          <Accordion type="single" collapsible className="text-left text-lg md:text-3xl">
+          <Accordion type="single" collapsible className="text-left text-2xl md:text-4xl lg:text-5xl">
             {[
               {
                 question: "Where do you source your coffee beans?",
