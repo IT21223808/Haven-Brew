@@ -41,9 +41,9 @@ const About = (props: Props) => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
+          <h2 className="text-6xl font-bold mb-6">Who We Are</h2>
 
-          <p className="text-lg leading-relaxed">
+          <p className="text-3xl leading-relaxed">
             At Corretto, we believe coffee is more than just a drink—it’s an experience.
             Since opening our doors, we've been dedicated to sourcing the finest beans,
             brewing perfection, and creating a space where everyone feels at home.
@@ -83,8 +83,8 @@ const About = (props: Props) => {
             viewport={{ once: true }}
             className="max-w-xl mx-auto text-center px-4"
           >
-            <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-            <p className="text-lg leading-relaxed">
+            <h2 className="text-6xl font-bold mb-4">Our Vision</h2>
+            <p className="text-xl leading-relaxed">
               To build a community around the art of coffee. From sourcing
               sustainable beans to cultivating relationships with our patrons,
               we strive to make every visit memorable.
