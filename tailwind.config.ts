@@ -10,7 +10,35 @@ const config: Config = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        espresso: "var(--color-espresso)",
+        cream: "var(--color-cream)",
+        caramel: "var(--color-caramel)",
+        amber: "var(--color-amber)",
+        heading: "var(--color-heading)",
+        body: "var(--color-body)",
+        muted: "var(--color-muted)",
+        border: "var(--color-border)",
+        "surface-alt": "var(--color-surface-alt)",
+      },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", "Arial", "sans-serif"],
+        display: ["Georgia", "Times New Roman", "serif"],
+      },
+      spacing: {
+        section: "var(--section-space)",
+      },
+      maxWidth: {
+        content: "var(--content-width)",
+      },
+      boxShadow: {
+        subtle: "var(--shadow-subtle)",
+      },
+      borderRadius: {
+        control: "var(--radius-control)",
+      },
+    },
   },
   plugins: [],
 };

@@ -1,5 +1,4 @@
-// ./types/declaration.d.ts
-declare module '*.css' {
-  const content: any;
-  export default content;
+declare module "*.css" {
+  const classes: Record<string, string>;
+  export default classes;
 }

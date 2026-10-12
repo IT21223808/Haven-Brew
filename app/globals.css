@@ -2,7 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Avoid conflicts with Tailwind's container class */
-.hb-container { position: relative; }
+:root {
+  color-scheme: light;
+  --color-espresso: #4E2E1F;
+  --color-cream: #F8F4F0;
+  --color-caramel: #CDA67E;
+  --color-amber: #DFA15B;
+  --color-heading: #1F1A16;
+  --color-body: #2B2B2B;
+  --color-muted: #6B665F;
+  --color-border: rgb(31 26 22 / 10%);
+  --color-surface-alt: #F4F1EE;
+  --shadow-subtle: 0 6px 18px rgb(31 26 22 / 6%);
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: var(--font-geist-sans), Arial, sans-serif;
+  --section-space: clamp(3rem, 7vw, 7.5rem);
+  --content-width: 72rem;
+  --radius-control: 0.5rem;
+}
 
-/* Your custom styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-cream);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: clip;
+  background-color: var(--color-cream);
+  color: var(--color-body);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Avoid conflicts with Tailwind's container class */
+.hb-container {
+  position: relative;
+}
+
+.hb-display {
+  color: var(--color-heading);
+  font-family: var(--font-display);
+}
+
+.hb-surface-alt {
+  background-color: var(--color-surface-alt);
+}
+
+.hb-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  padding: 0.75rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.hb-button-primary {
+  background-color: var(--color-espresso);
+  color: var(--color-cream);
+}
+
+.hb-button-secondary {
+  border-color: var(--color-espresso);
+  background-color: transparent;
+  color: var(--color-espresso);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

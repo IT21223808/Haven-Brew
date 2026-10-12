@@ -1,103 +1,75 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
-import { motion } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
+
+const questions = [
+  {
+    question: "What coffee do you serve?",
+    answer:
+      "Haven Brew features a range of familiar coffee favourites, from espresso and cappuccino to iced and signature drinks.",
+  },
+  {
+    question: "Do you offer iced drinks?",
+    answer:
+      "Yes, iced coffee and tea selections are available, with offerings depending on the season and the day.",
+  },
+  {
+    question: "Do you have non-coffee drinks?",
+    answer:
+      "Yes, tea, matcha, hot chocolate, and other non-coffee options are available.",
+  },
+  {
+    question: "Do you offer bakery items?",
+    answer:
+      "Yes, bakery and light bites are part of the café experience and may vary by day.",
+  },
+  {
+    question: "Can I view the full menu online?",
+    answer:
+      "Yes, the full menu is available on the Haven Brew menu page for a quick browse before your visit.",
+  },
+];
 
 export function FAQ() {
   return (
-    <div className="min-h-screen bg-[#f8f4f0] text-gray-800">
-      {/* Hero Section */}
-      <section className="relative w-full h-[200px] flex items-center justify-center bg-cover bg-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-center text-[#4e2e1f] px-6 pt-9"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold">FAQ</h1>
-        </motion.div>
-      </section>
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="bg-cream"
+    >
+      <div className="mx-auto max-w-3xl px-4 py-section sm:px-6 lg:px-8">
+        <div className="mb-8 text-center sm:mb-10">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-espresso sm:text-sm">
+            HAVEN BREW
+          </p>
+          <h2
+            id="faq-heading"
+            className="hb-display text-3xl font-semibold leading-tight text-heading sm:text-4xl lg:text-5xl"
+          >
+            Frequently Asked Questions
+          </h2>
+        </div>
 
-      <section className="px-6 md:px-20 flex flex-col md:flex-row gap-10 font-semibold items-center">
-        {/* FAQ Section */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.2 },
-            },
-          }}
-          className="flex-1 w-full max-w-4xl mx-auto pt-10"
-        >
-          <Accordion type="single" collapsible className="text-left text-2xl md:text-4xl lg:text-5xl">
-            {[
-              {
-                question: "Where do you source your coffee beans?",
-                answer:
-                  "We source our coffee beans from ethical, sustainable farms around the world, including regions in Ethiopia, Colombia, and Guatemala.",
-              },
-              {
-                question: "Do you have a loyalty program?",
-                answer:
-                  "Yes, we have a rewards program. Sign up with us to earn points on every purchase and enjoy discounts or free items!",
-              },
-              {
-                question: "Are pets allowed in the café?",
-                answer:
-                  "Pets are welcome in our outdoor seating area. Please ensure they are leashed and well-behaved.",
-              },
-              {
-                question: "Do you accommodate large groups?",
-                answer:
-                  "We welcome groups, but if you’re visiting with more than six people, we recommend calling ahead to reserve seating.",
-              },
-              {
-                question: "Can I work or study in your café?",
-                answer:
-                  "Of course! Our café has a quiet, welcoming atmosphere with plenty of outlets to charge your devices. Perfect for working, studying, or relaxing.",
-              },
-              {
-                question: "Can I customize my drink?",
-                answer:
-                  "Yes, all our drinks are fully customizable. You can choose the type of milk, sweetness level, and add flavors or toppings as you prefer.",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, x: -30 },
-                  visible: { opacity: 1, x: 0 },
-                }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <AccordionItem value={`item-${index + 1}`}>
-                  <AccordionTrigger>{item.question}</AccordionTrigger>
-                  <AccordionContent>{item.answer}</AccordionContent>
-                </AccordionItem>
-              </motion.div>
-            ))}
-          </Accordion>
-        </motion.div>
-
-        {/* Image Section */}
-        <motion.div
-          className="flex-1 flex pb-5 justify-center items-center w-full md:w-auto"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-        >
-          <motion.img
-            src="/coffee2.png"
-            alt="Coffee"
-            className="max-w-[90%] md:max-w-[450px]"
-            animate={{ y: [0, -5, 0] }}
-            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            whileTap={{ scale: 0.9 }}
-          />
-        </motion.div>
-      </section>
-    </div>
+        <Accordion type="single" collapsible className="border-t border-border">
+          {questions.map((item, index) => (
+            <AccordionItem
+              key={item.question}
+              value={`item-${index + 1}`}
+              className="border-border"
+            >
+              <AccordionTrigger className="min-h-14 py-4 text-left text-base font-medium text-heading hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber sm:text-lg">
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className="max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
   );
 }

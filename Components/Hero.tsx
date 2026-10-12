@@ -1,104 +1,81 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
-  // Initialize AOS animation
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: "ease-in-out",
-    });
-  }, []);
-
-  // Animated phrases
-  const phrases = ["YOUR DAY", "YOUR MORNING", "YOUR ENERGY", "YOUR MOOD"];
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % phrases.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div
-      className="w-full bg-[#a77158] min-h-screen flex flex-col lg:flex-row
-      items-center justify-between gap-y-16 lg:gap-x-20 px-6 sm:px-12 lg:px-20
-      py-16 pt-32 lg:pt-16 overflow-hidden"
+    <section
+      aria-labelledby="hero-heading"
+      className="relative overflow-hidden bg-cream py-12 sm:py-16 lg:py-20"
     >
-      {/* 🔹 Left Section */}
-      <div className="w-full lg:w-1/2 text-center lg:text-left">
-        <h1
-          data-aos="fade-right"
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl
-          font-bold text-white leading-tight"
-        >
-          START{" "}
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={phrases[index]}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="text-transparent bg-clip-text bg-gradient-to-r
-              from-purple-300 to-amber-900"
-            >
-              {phrases[index]}
-            </motion.span>
-          </AnimatePresence>{" "}
-          WITH COFFEE
-        </h1>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(205,166,126,0.18),_transparent_38%)]" />
 
-        <p
-          data-aos="fade-right"
-          data-aos-delay="400"
-          className="text-base sm:text-lg md:text-3xl text-gray-100 my-5
-          max-w-md mx-auto lg:mx-0"
-        >
-          "Made using only the finest coding & design practices, Corretto is
-          sure to make a perfect main ingredient for creating an irresistible
-          coffee shop website."
-        </p>
-
-        <div
-          data-aos="fade-up"
-          data-aos-delay="500"
-          className="flex justify-center lg:justify-start"
-        >
-          <Link
-            href="/"
-            className="bg-white text-3xl font-bold text-black px-9 py-5 rounded-2xl shadow-lg
-            hover:bg-gray-200 transition duration-300"
+      <div className="relative mx-auto grid w-full max-w-content items-center gap-10 px-4 sm:px-6 md:grid-cols-[1.05fr_0.95fr] md:gap-8 lg:gap-16 lg:px-8">
+        <div className="max-w-xl">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-espresso sm:text-sm">
+            HAVEN BREW
+          </p>
+          <h1
+            id="hero-heading"
+            className="hb-display text-[2.2rem] font-semibold leading-[1.08] sm:text-4xl md:text-[2.9rem] lg:text-[4rem]"
           >
-            Shop Now
-          </Link>
+            Warm hands. Expertly brewed.
+          </h1>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-body sm:text-lg">
+            Specialty coffee and a quiet place to linger. Small-batch approach,
+            crafted drinks, and a friendly welcome — Haven Brew is a thoughtful
+            pause in your day.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/products"
+              className="hb-button hb-button-primary transition-colors motion-reduce:transition-none hover:bg-espresso/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber"
+            >
+              Explore Our Menu
+            </Link>
+            <Link
+              href="/#visit"
+              className="hb-button hb-button-secondary transition-colors motion-reduce:transition-none hover:bg-surface-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber"
+            >
+              Visit Haven Brew
+            </Link>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3 text-sm text-muted">
+            <span className="rounded-full border border-border bg-white/70 px-3 py-1.5">
+              Small-batch beans
+            </span>
+            <span className="rounded-full border border-border bg-white/70 px-3 py-1.5">
+              Thoughtful pours
+            </span>
+            <span className="rounded-full border border-border bg-white/70 px-3 py-1.5">
+              Daily comfort
+            </span>
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-xl">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-border bg-surface-alt shadow-subtle md:aspect-[5/4]">
+            <Image
+              src="/coffee1.png"
+              alt="Freshly brewed coffee served in a warm café setting"
+              fill
+              priority
+              sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 576px"
+              className="object-cover"
+            />
+          </div>
+
+          <div className="absolute -bottom-4 left-4 max-w-[220px] rounded-2xl border border-border bg-white/85 p-3 shadow-subtle backdrop-blur-sm">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-espresso">
+              Signature pour
+            </p>
+            <p className="mt-2 font-display text-lg text-heading">
+              Roasted for slow mornings
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* 🔹 Right Section (Image) */}
-      <div
-        data-aos="zoom-in"
-        data-aos-delay="600"
-        className="w-full lg:w-1/2 flex justify-center mt-10 lg:mt-0 self-center"
-      >
-        <Image
-          src="/coffee.png"
-          alt="coffee"
-          width={500}
-          height={400}
-          className="w-full
-          max-w-[300px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px]
-          h-auto"
-        />
-      </div>
-    </div>
+    </section>
   );
 }
